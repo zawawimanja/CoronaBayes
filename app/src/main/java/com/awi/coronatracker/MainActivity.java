@@ -4,8 +4,6 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -18,12 +16,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.awi.ViewPagerAdapter;
+import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.news.NewsFragment;
+import com.awi.coronatracker.retrofit.MovieFragment;
+import com.awi.coronatracker.webview.BotFragment;
+import com.awi.coronatracker.webview.MapFragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -42,23 +42,29 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
-         //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setupViewPager(viewPager);
 
+        //create tab
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+
+        // Create Navigation drawer and inlfate layout
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        //create drawer
         mDrawerLayout  = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager);
+
+
 //        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-//        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-//        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-//        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+
+
 
 
 
@@ -72,46 +78,57 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    // This method will trigger on item Click of navigation menu
+
+                    //creating fragment object
+                    Fragment fragment = null;
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                        int id = menuItem.getItemId();
+
+                        if (id == R.id.bot) {
+                            fragment = new BotFragment();
+                           // loadFragment(fragment);
+                         //   viewPager.setCurrentItem(2);
+                        }
+
+
+                        // Set item in checked state
+                        menuItem.setChecked(true);
+
+                        // TODO: handle navigation
+
+
+                        // Closing drawer on item click
+                        mDrawerLayout.closeDrawers();
+                        return true;
+                    }
+
+
+
+                });
+
+
+
 
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new NewsFragment(), "News");
         adapter.addFragment(new MapFragment(), "Map");
-        adapter.addFragment(new ScreeningFragment(), "CheckUp");
+        adapter.addFragment(new QuestionFragment(),"QR");
         adapter.addFragment(new BotFragment(),"Bot");
 
+        adapter.addFragment(new MovieFragment(), "Hospital");
         viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
 
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
 
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,4 +151,17 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+//    private void loadFragment(Fragment fragment) {
+//        // load fragment
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.viewPager, fragment);
+//        transaction.addToBackStack(null);
+//        transaction.commit();
+//    }
+
+
+
+
 }

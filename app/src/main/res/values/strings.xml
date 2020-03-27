@@ -18,4 +18,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="red_msg">Urgently contact with Doctor and requires a 14-day quarantine strictly.</string>
+    <string name="yellow_msg">Don\'t Worry But contact with Doctor and seven-day quarantine is required</string>
+    <string name="green">You are safe. But follow WHO instruction to be safe forever</string>
 </resources>
