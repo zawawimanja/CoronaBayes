@@ -18,6 +18,13 @@
         android:roundIcon="@mipmap/corona_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/MyToolbarTheme">
+        <activity android:name="com.awi.coronatracker.QR.QrCreateActivity"
+
+
+            >
+
+
+        </activity>
         <activity android:name="com.awi.coronatracker.MainActivity"
             android:label="@string/app_name"
             >

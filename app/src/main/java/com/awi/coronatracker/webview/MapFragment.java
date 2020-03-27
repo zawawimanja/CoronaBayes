@@ -1,4 +1,4 @@
-package com.awi.coronatracker;
+package com.awi.coronatracker.webview;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,32 +11,41 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.awi.coronatracker.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BotFragment#newInstance} factory method to
+ * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BotFragment extends Fragment {
+public class MapFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
     private WebView webView;
-    private  String Load_url="https://covid.apollo247.com/?utm_source=linkedin&utm_medium=organic&utm_campaign=bot_scanner";
-    //"https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61";
+    private  String Load_url="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd";
+            //"https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61";
     private final static long threshold = 150000;
 
+    // TODO: Rename and change types of parameters
 
-    public BotFragment() {
+
+    public MapFragment() {
         // Required empty public constructor
     }
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     * @return A new instance of fragment Self_Diagnosis_Fragment.
+     *
+     *
+     * @return A new instance of fragment GlobalCoronaMapFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BotFragment newInstance(String param1, String param2) {
-        BotFragment fragment = new BotFragment();
+    public static MapFragment newInstance(String param1, String param2) {
+        MapFragment fragment = new MapFragment();
         Bundle args = new Bundle();
 
         return fragment;
@@ -45,15 +54,21 @@ public class BotFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+    private void openURL() {
+        webView.loadUrl("https://google.org/crisisresponse/covid19-map");
+        webView.requestFocus();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.fragment_bot_chat, container, false);
+        View v= inflater.inflate(R.layout.fragment_map, container, false);
         webView = v.findViewById(R.id.mbEmbeddedWebView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setUseWideViewPort(true);
@@ -73,9 +88,5 @@ public class BotFragment extends Fragment {
         openURL();
         // Inflate the layout for this fragment
         return v;
-    }
-    private void openURL() {
-        webView.loadUrl(Load_url);
-        webView.requestFocus();
     }
 }
