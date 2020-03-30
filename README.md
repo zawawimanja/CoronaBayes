@@ -1,3 +1,6 @@
 # CoronaBayes
 
-ViewPager NavigationDrawer
+ViewPager 
+NavigationDrawer
+RecyclerView
+Webview
