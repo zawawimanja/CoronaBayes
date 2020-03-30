@@ -1,5 +1,13 @@
 package com.awi.coronatracker;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
@@ -35,12 +43,22 @@ public class MainActivity extends AppCompatActivity  {
     };
 
     private DrawerLayout mDrawerLayout;
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        // attaching bottom sheet behaviour - hide / show on scroll
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehavior());
+
+
 
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -90,9 +108,8 @@ public class MainActivity extends AppCompatActivity  {
                         int id = menuItem.getItemId();
 
                         if (id == R.id.bot) {
-                            fragment = new BotFragment();
-                           // loadFragment(fragment);
-                         //   viewPager.setCurrentItem(2);
+
+                           viewPager.setCurrentItem(2);
                         }
 
 
@@ -160,6 +177,39 @@ public class MainActivity extends AppCompatActivity  {
 //        transaction.addToBackStack(null);
 //        transaction.commit();
 //    }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.navigation_shop:
+                    toolbar.setTitle("Shop");
+//                    fragment = new StoreFragment();
+//                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_gifts:
+                    toolbar.setTitle("My Gifts");
+                    viewPager.setCurrentItem(2);
+                    return true;
+                case R.id.navigation_cart:
+                    toolbar.setTitle("Cart");
+//                    fragment = new CartFragment();
+//                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_profile:
+                    toolbar.setTitle("Profile");
+//                    fragment = new ProfileFragment();
+//                    loadFragment(fragment);
+                    return true;
+            }
+
+            return false;
+        }
+    };
 
 
 

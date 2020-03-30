@@ -75,6 +75,8 @@ public class NewsFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View v = inflater.inflate(R.layout.fragment_news, container, false);
         // Find a reference to the {@link ListView} in the layout
         ListView CoronaNewsListView = (ListView) v.findViewById(R.id.list);
@@ -88,6 +90,8 @@ public class NewsFragment extends Fragment
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         CoronaNewsListView.setAdapter(mAdapter);
+
+
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
         // to open a website with more information about the selected CoronaNews.
