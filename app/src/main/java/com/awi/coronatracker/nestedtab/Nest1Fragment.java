@@ -1,4 +1,4 @@
-package com.awi.coronatracker.webview;
+package com.awi.coronatracker.nestedtab;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,19 +14,16 @@ import android.webkit.WebViewClient;
 import com.awi.coronatracker.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class Nest2Fragment extends Fragment {
+public class Nest1Fragment extends Fragment {
 
+
+    private  String Load_url="https://google.org/crisisresponse/covid19-map";
     private WebView webView;
-    private  String Load_url="https://covid.apollo247.com/?utm_source=linkedin&utm_medium=organic&utm_campaign=bot_scanner";
-    //"https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61";
+
     private final static long threshold = 150000;
 
-
-    public static Nest2Fragment newInstance(int position) {
-        Nest2Fragment fragment = new Nest2Fragment();
+    public static Nest1Fragment newInstance(int position) {
+        Nest1Fragment fragment = new Nest1Fragment();
         Bundle args = new Bundle();
         args.putInt("position", position);
         fragment.setArguments(args);
@@ -34,7 +31,7 @@ public class Nest2Fragment extends Fragment {
         return fragment;
     }
 
-    public Nest2Fragment() {
+    public Nest1Fragment() {
 
     }
 
@@ -49,11 +46,14 @@ public class Nest2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.fragment_nest2, container, false);
+        View v = inflater.inflate(R.layout.fragment_nest1, container, false);
 
-        webView = v.findViewById(R.id.mbEmbeddedWebView);
+
+
+                webView = v.findViewById(R.id.mbEmbeddedWebView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setUseWideViewPort(true);
@@ -71,6 +71,8 @@ public class Nest2Fragment extends Fragment {
             }
         });
         openURL();
+
+
         return v;
     }
 

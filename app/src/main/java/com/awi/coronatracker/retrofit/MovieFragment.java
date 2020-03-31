@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 
 
 import com.awi.coronatracker.R;
-import com.awi.coronatracker.api.ApiService;
-import com.awi.coronatracker.api.RetrofitClient;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +23,9 @@ import retrofit2.Response;
 
 public class MovieFragment extends Fragment {
 
-    private ApiService apiService;
+//    private ApiService apiService;
     private RecyclerView shopsRecyclerview;
-    private MovieAdapter recyclerviewAdapter;
+    private MovieDataModel recyclerviewAdapter;
     private List<MovieDataModel> movieList;
 
     @Nullable
@@ -37,30 +36,30 @@ public class MovieFragment extends Fragment {
         shopsRecyclerview = (RecyclerView)view.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         shopsRecyclerview.setLayoutManager(layoutManager);
-        apiService = RetrofitClient.getInstance().create(ApiService.class);
-        recyclerviewAdapter = new MovieAdapter(getContext(), movieList);
-        shopsRecyclerview.setAdapter(recyclerviewAdapter);
-        loadshopData();
+//        apiService = RetrofitClient.getInstance().create(ApiService.class);
+//        recyclerviewAdapter = new MovieDataModel(getContext(), movieList);
+//        shopsRecyclerview.setAdapter(recyclerviewAdapter);
+        //loadshopData();
         return view;
     }
-
-    private void loadshopData() {
-
-        Call<List<MovieDataModel>> listCall = apiService.getshops();
-
-        listCall.enqueue(new Callback<List<MovieDataModel>>() {
-            @Override
-            public void onResponse(Call<List<MovieDataModel>> call, Response<List<MovieDataModel>> response) {
-                movieList = response.body();
-                recyclerviewAdapter.loadShops(movieList);
-                Log.d("Response",response.body().toString());
-            }
-
-            @Override
-            public void onFailure(Call<List<MovieDataModel>> call, Throwable t) {
-                Log.d("Response",t.toString());
-
-            }
-        });
-    }
+//
+//    private void loadshopData() {
+//
+//        Call<List<MovieDataModel>> listCall = apiService.getshops();
+//
+//        listCall.enqueue(new Callback<List<MovieDataModel>>() {
+//            @Override
+//            public void onResponse(Call<List<MovieDataModel>> call, Response<List<MovieDataModel>> response) {
+//                movieList = response.body();
+//                recyclerviewAdapter.loadShops(movieList);
+//                Log.d("Response",response.body().toString());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<MovieDataModel>> call, Throwable t) {
+//                Log.d("Response",t.toString());
+//
+//            }
+//        });
+//    }
 }

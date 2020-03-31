@@ -13,7 +13,7 @@ public class MovieDataModel {
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "GridModelData{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", image='" + image + '\'' +

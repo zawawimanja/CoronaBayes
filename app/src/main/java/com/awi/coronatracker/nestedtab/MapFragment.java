@@ -1,4 +1,4 @@
-package com.awi.coronatracker.webview;
+package com.awi.coronatracker.nestedtab;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,12 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
+import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.R;
 
 
@@ -86,8 +83,10 @@ public class MapFragment extends Fragment {
             switch (position) {
                 case 0:
                     return Nest1Fragment.newInstance(1);
+                case 1:
+                    return QuestionFragment.newInstance(2);
                 default:
-                    return Nest2Fragment.newInstance(2);
+                    return Nest2Fragment.newInstance(3);
             }
 
         }
@@ -95,7 +94,7 @@ public class MapFragment extends Fragment {
         @Override
         public int getCount() {
             // Show 4 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
@@ -103,9 +102,11 @@ public class MapFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    return "Nested 1";
+                    return "Google";
+                case 1:
+                    return "QR";
                 default:
-                    return "Nested 2";
+                    return "Bot";
             }
 
 

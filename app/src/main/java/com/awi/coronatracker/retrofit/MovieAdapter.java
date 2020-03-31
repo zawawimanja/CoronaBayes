@@ -13,12 +13,12 @@ import com.awi.coronatracker.R;
 
 import java.util.List;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter .MyViewHolder> {
 
     private List<MovieDataModel> movieList;
     private Context context;
 
-    MovieAdapter(Context context, List<MovieDataModel> movieList){
+    MovieAdapter (Context context, List<MovieDataModel> movieList){
         this.context = context;
         this.movieList = movieList;
     }
@@ -29,13 +29,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     }
 
     @Override
-    public MovieAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovieAdapter .MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.latest_adapter_layout,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MovieAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MovieAdapter .MyViewHolder holder, int position) {
         holder.shopName.setText(movieList.get(position).name);
        // Glide.with(context).load(movieList.get(position).image).into(holder.shopImage);
     }

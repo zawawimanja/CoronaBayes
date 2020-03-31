@@ -24,8 +24,9 @@ import android.view.MenuItem;
 import com.awi.ViewPagerAdapter;
 import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.news.NewsFragment;
+import com.awi.coronatracker.nestedtab.MapFragment;
 import com.awi.coronatracker.retrofit.MovieFragment;
-import com.awi.coronatracker.webview.MapFragment;
+
 
 public class MainActivity extends AppCompatActivity  {
     private Toolbar toolbar;
@@ -130,10 +131,11 @@ public class MainActivity extends AppCompatActivity  {
     }
     private void setupViewPager(ViewPager viewPager) {
 
+        //in sequence
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new QuestionFragment(),"Home");
+        adapter.addFragment(new MapFragment(), "Stat");
         adapter.addFragment(new NewsFragment(), "News");
-        adapter.addFragment(new MapFragment(), "Map");
-        adapter.addFragment(new QuestionFragment(),"QR");
         adapter.addFragment(new MovieFragment(), "Hospital");
         viewPager.setAdapter(adapter);
     }
