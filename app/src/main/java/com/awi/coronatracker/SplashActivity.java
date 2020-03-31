@@ -9,6 +9,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.awi.coronatracker.introslider.IntroductionMemory;
+import com.awi.coronatracker.introslider.WelcomeActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView SplashLogo;
@@ -31,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent splash = new Intent(SplashActivity.this, SignInActivity.class);
+                Intent splash = new Intent(SplashActivity.this, WelcomeActivity.class);
                 startActivity(splash);
                 finish();
             }
