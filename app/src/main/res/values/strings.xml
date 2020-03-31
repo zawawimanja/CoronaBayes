@@ -24,8 +24,10 @@
     <string name="green">You are safe. But follow WHO instruction to be safe forever</string>
 
 
-    <string name="title_shop">Shop</string>
+    <string name="title_shop">Home</string>
     <string name="title_gifts">Gifts</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
+    <string name="noti">Noti</string>
+    <string name="request">Request</string>
 </resources>

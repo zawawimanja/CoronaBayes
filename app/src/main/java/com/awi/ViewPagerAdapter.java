@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.retrofit.MovieFragment;
-import com.awi.coronatracker.webview.BotFragment;
 import com.awi.coronatracker.webview.MapFragment;
 import com.awi.coronatracker.news.NewsFragment;
 
@@ -44,18 +43,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             return new MapFragment();
         }else if(position==2){
             return new QuestionFragment();
-        }else if(position==3){
-            return new BotFragment();
-
-        }else if(position==4){
+        }else
             return new MovieFragment();
 
-
-        } else return new MovieFragment();
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 }
