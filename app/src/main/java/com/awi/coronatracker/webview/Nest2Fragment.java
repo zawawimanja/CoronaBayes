@@ -16,43 +16,41 @@ import com.awi.coronatracker.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BotFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
-public class BotFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+public class Nest2Fragment extends Fragment {
+
     private WebView webView;
     private  String Load_url="https://covid.apollo247.com/?utm_source=linkedin&utm_medium=organic&utm_campaign=bot_scanner";
     //"https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61";
     private final static long threshold = 150000;
 
 
-    public BotFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     * @return A new instance of fragment Self_Diagnosis_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BotFragment newInstance(String param1, String param2) {
-        BotFragment fragment = new BotFragment();
+    public static Nest2Fragment newInstance(int position) {
+        Nest2Fragment fragment = new Nest2Fragment();
         Bundle args = new Bundle();
+        args.putInt("position", position);
+        fragment.setArguments(args);
 
         return fragment;
+    }
+
+    public Nest2Fragment() {
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+           /* mPosition = getArguments().getInt("position");*/
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.fragment_bot_chat, container, false);
+        View v= inflater.inflate(R.layout.fragment_nest2, container, false);
+
         webView = v.findViewById(R.id.mbEmbeddedWebView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -73,11 +71,12 @@ public class BotFragment extends Fragment {
             }
         });
         openURL();
-        // Inflate the layout for this fragment
         return v;
     }
+
     private void openURL() {
         webView.loadUrl(Load_url);
         webView.requestFocus();
     }
+
 }

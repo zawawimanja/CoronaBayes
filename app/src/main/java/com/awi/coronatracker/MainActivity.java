@@ -1,8 +1,5 @@
 package com.awi.coronatracker;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -28,7 +25,6 @@ import com.awi.ViewPagerAdapter;
 import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.news.NewsFragment;
 import com.awi.coronatracker.retrofit.MovieFragment;
-import com.awi.coronatracker.webview.BotFragment;
 import com.awi.coronatracker.webview.MapFragment;
 
 public class MainActivity extends AppCompatActivity  {
@@ -133,12 +129,11 @@ public class MainActivity extends AppCompatActivity  {
 
     }
     private void setupViewPager(ViewPager viewPager) {
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new NewsFragment(), "News");
         adapter.addFragment(new MapFragment(), "Map");
         adapter.addFragment(new QuestionFragment(),"QR");
-        adapter.addFragment(new BotFragment(),"Bot");
-
         adapter.addFragment(new MovieFragment(), "Hospital");
         viewPager.setAdapter(adapter);
     }
@@ -184,26 +179,25 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
+
             switch (item.getItemId()) {
                 case R.id.navigation_shop:
-                    toolbar.setTitle("Shop");
-//                    fragment = new StoreFragment();
-//                    loadFragment(fragment);
+                  //  toolbar.setTitle("Shop");
+                    viewPager.setCurrentItem(0);
+
                     return true;
                 case R.id.navigation_gifts:
-                    toolbar.setTitle("My Gifts");
-                    viewPager.setCurrentItem(2);
+                   // toolbar.setTitle("My Gifts");
+                    viewPager.setCurrentItem(1);
                     return true;
                 case R.id.navigation_cart:
-                    toolbar.setTitle("Cart");
-//                    fragment = new CartFragment();
-//                    loadFragment(fragment);
+                   // toolbar.setTitle("Cart");
+                    viewPager.setCurrentItem(2);
                     return true;
                 case R.id.navigation_profile:
-                    toolbar.setTitle("Profile");
-//                    fragment = new ProfileFragment();
-//                    loadFragment(fragment);
+                    //toolbar.setTitle("Profile");
+                    viewPager.setCurrentItem(3);
+
                     return true;
             }
 
