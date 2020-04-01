@@ -1,14 +1,15 @@
 package com.awi;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.awi.coronatracker.QR.QuestionFragment;
-import com.awi.coronatracker.retrofit.MovieFragment;
-import com.awi.coronatracker.webview.MapFragment;
-import com.awi.coronatracker.news.NewsFragment;
+import com.awi.coronatracker.home.HomeFragment;
+
+import com.awi.coronatracker.nestedtab.MapFragment;
+import com.awi.coronatracker.notification.retrofit.NotificationFragment;
+import com.awi.coronatracker.profile.retrofit.ProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +39,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position ==0) {
-            return new NewsFragment();
+            return new HomeFragment();
         } else if (position == 1) {
             return new MapFragment();
         }else if(position==2){
-            return new QuestionFragment();
+            return new NotificationFragment();
         }else
-            return new MovieFragment();
+            return new ProfileFragment();
 
     }
 

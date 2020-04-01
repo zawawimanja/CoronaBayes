@@ -11,8 +11,8 @@
     <dimen name="tab_label">14sp</dimen>
     <dimen name="custom_tab_layout_height">72dp</dimen>
 
-    <dimen name="card_height">304dp</dimen>
-    <dimen name="md_keylines">16dp</dimen>
+    <dimen name="card_height">200dp</dimen>
+    <dimen name="md_keylines">8dp</dimen>
     <dimen name="tile_padding">8dp</dimen>
     <dimen name="tile_height">160dp</dimen>
 
@@ -34,4 +34,10 @@
     <dimen name="slide_title">30dp</dimen>
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
+
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="card_album_radius">0dp</dimen>
+    <dimen name="card_cover_height">130dp</dimen>
+    <dimen name="card_title_padding">10dp</dimen>
+    <dimen name="card_price_padding_bottom">5dp</dimen>
 </resources>

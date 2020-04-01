@@ -1,19 +1,15 @@
 package com.awi.coronatracker.QR;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 
 import com.awi.coronatracker.R;
@@ -44,27 +40,15 @@ public class QuestionFragment extends Fragment {
     List<Question> questionList;
     private EditText etName, etId;
 
-    public QuestionFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment QuestionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static QuestionFragment newInstance(String param1, String param2) {
+    public static QuestionFragment newInstance(int position) {
         QuestionFragment fragment = new QuestionFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt("position", position);
         fragment.setArguments(args);
+
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,15 +100,15 @@ public class QuestionFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (TextUtils.isEmpty(etName.getText())) {
-                    etName.setError("Enter your Name");
-                    return;
-                }
-
-                if (TextUtils.isEmpty(etId.getText())) {
-                    etId.setError("Enter your age");
-                    return;
-                }
+//                if (TextUtils.isEmpty(etName.getText())) {
+//                    etName.setError("Enter your Name");
+//                    return;
+//                }
+//
+//                if (TextUtils.isEmpty(etId.getText())) {
+//                    etId.setError("Enter your age");
+//                    return;
+//                }
 
                 int mark = 0;
                 int total = 0;

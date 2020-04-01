@@ -53,6 +53,27 @@
 
     </array>
 
+    <color name="color_transparent">#00000000</color>
+    <!-- colors for tab and screen text -->
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+
+
+    <color name="black">#000000</color>
+
+    <color name="light_gray">#EDE7F6</color>
+    <color name="lightish_gray">#dfd4ef</color>
+
+    //Text
+    <color name="textColorPrimaryDark">#2c2c2c</color>
+
+    <color name="textColorAccent">#808080</color>
+
+    //Question
+    <color name="wrongAnswerRed">#b71c1c</color>
+    <color name="correctAnswerGreen">#007000</color>
+
 
 
 </resources>

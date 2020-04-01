@@ -1,6 +1,6 @@
 package com.awi.coronatracker.news;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;;
 import android.content.Context;
 import android.content.Intent;
 
@@ -9,10 +9,10 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +37,7 @@ public class NewsFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<CoronaNews>> {
 
     private static final String LOG_TAG = NewsFragment.class.getName();
-    android.support.v4.app.LoaderManager loaderManager = null;
+    LoaderManager loaderManager = null;
     /** URL for corona data from the News API */
     private static final String CORONA_NEWS_REQUEST_URL ="https://news.google.com/rss/search?q=malaysia&hl=en-MY&gl=MY&ceid=MY%3Aen";
 
@@ -59,9 +59,11 @@ public class NewsFragment extends Fragment
     }
 
 
-    // TODO: Rename and change types and number of parameters
-    public static NewsFragment newInstance(String param1, String param2) {
+    public static NewsFragment newInstance(int position) {
         NewsFragment fragment = new NewsFragment();
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        fragment.setArguments(args);
 
         return fragment;
     }
