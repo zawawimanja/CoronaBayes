@@ -20,7 +20,7 @@
             android:tint="@color/button_grey"
             android:title="Location" />
         <item
-
+            android:id="@+id/test1"
             android:tint="@color/button_grey"
             android:title="Tips" />
         <item

@@ -1,4 +1,4 @@
-package com.awi.coronatracker.introslider;
+package com.awi.coronatracker.intro;
 
 import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;

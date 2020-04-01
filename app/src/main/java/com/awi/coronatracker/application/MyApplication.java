@@ -1,4 +1,4 @@
-package com.awi.coronatracker;
+package com.awi.coronatracker.application;
 
 /**
  * Created by ravi on 21/12/17.

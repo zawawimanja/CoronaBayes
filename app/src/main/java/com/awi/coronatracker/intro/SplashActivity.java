@@ -1,4 +1,4 @@
-package com.awi.coronatracker;
+package com.awi.coronatracker.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.awi.coronatracker.introslider.WelcomeActivity;
+import com.awi.coronatracker.R;
 
 public class SplashActivity extends AppCompatActivity {
 

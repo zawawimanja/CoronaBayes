@@ -1,4 +1,4 @@
-package com.awi.coronatracker.introslider;
+package com.awi.coronatracker.intro;
 
 import android.content.Context;
 import android.content.SharedPreferences;

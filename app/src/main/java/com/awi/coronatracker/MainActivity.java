@@ -6,10 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.awi.coronatracker.settings.SettingsActivity;
+import com.awi.coronatracker.test.Main2Activity;
+import com.awi.coronatracker.test.Test2Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.fragment.app.FragmentTransaction;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.res.ResourcesCompat;
@@ -105,15 +109,26 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
 
+                        Test2Fragment fragment=new Test2Fragment();
                         int id = menuItem.getItemId();
 
                         if (id == R.id.bot) {
 
                            viewPager.setCurrentItem(2);
                         }
-                        if (id == R.id.test) {
+                       else if (id == R.id.test) {
+                           Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
+                           mainIntent.putExtra("FragmentChoose",1);
+                          startActivity(mainIntent);
+                        }
+                        else if (id == R.id.test1) {
+                            Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
+                            mainIntent.putExtra("FragmentChoose",2);
+                            startActivity(mainIntent);
 
-                            viewPager.setCurrentItem(2);
+//                            Intent mainIntent = new Intent(MainActivity.this, SettingsActivity.class);
+//                            startActivity(mainIntent);
+
                         }
 
 
@@ -177,13 +192,13 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-//    private void loadFragment(Fragment fragment) {
-//        // load fragment
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.viewPager, fragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
-//    }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.test, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
