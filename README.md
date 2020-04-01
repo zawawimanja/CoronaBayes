@@ -1,5 +1,7 @@
 # CoronaBayes
 
+#Android X
+
 1. ViewPager Tab Layout
 2. NavigationDrawer
 3. Bottom Bar
