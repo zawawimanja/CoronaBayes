@@ -1,4 +1,4 @@
-package com.awi.coronatracker.retrofit;
+package com.awi.coronatracker.profile.retrofit;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,29 +13,29 @@ import com.awi.coronatracker.R;
 
 import java.util.List;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter .MyViewHolder> {
+public class ProfileFragmentAdapter extends RecyclerView.Adapter<ProfileFragmentAdapter.MyViewHolder> {
 
-    private List<MovieDataModel> movieList;
+    private List<ProfileFragmentDataModel> movieList;
     private Context context;
 
-    MovieAdapter (Context context, List<MovieDataModel> movieList){
+    ProfileFragmentAdapter(Context context, List<ProfileFragmentDataModel> movieList){
         this.context = context;
         this.movieList = movieList;
     }
 
-    public void loadShops(List<MovieDataModel> movieList){
+    public void loadShops(List<ProfileFragmentDataModel> movieList){
         this.movieList = movieList;
         notifyDataSetChanged();
     }
 
     @Override
-    public MovieAdapter .MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ProfileFragmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.latest_adapter_layout,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MovieAdapter .MyViewHolder holder, int position) {
+    public void onBindViewHolder(ProfileFragmentAdapter.MyViewHolder holder, int position) {
         holder.shopName.setText(movieList.get(position).name);
        // Glide.with(context).load(movieList.get(position).image).into(holder.shopImage);
     }

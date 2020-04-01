@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.awi.coronatracker.R;
+import com.awi.coronatracker.nestedtab.Nest1Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,9 +60,11 @@ public class NewsFragment extends Fragment
     }
 
 
-    // TODO: Rename and change types and number of parameters
-    public static NewsFragment newInstance(String param1, String param2) {
+    public static NewsFragment newInstance(int position) {
         NewsFragment fragment = new NewsFragment();
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        fragment.setArguments(args);
 
         return fragment;
     }

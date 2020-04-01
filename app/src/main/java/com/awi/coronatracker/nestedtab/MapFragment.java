@@ -12,6 +12,7 @@ import android.webkit.WebView;
 
 import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.R;
+import com.awi.coronatracker.news.NewsFragment;
 
 
 /**
@@ -84,7 +85,7 @@ public class MapFragment extends Fragment {
                 case 0:
                     return Nest1Fragment.newInstance(1);
                 case 1:
-                    return QuestionFragment.newInstance(2);
+                    return NewsFragment.newInstance(2);
                 default:
                     return Nest2Fragment.newInstance(3);
             }
@@ -102,9 +103,9 @@ public class MapFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    return "Google";
+                    return "Statistic";
                 case 1:
-                    return "QR";
+                    return "News";
                 default:
                     return "Bot";
             }

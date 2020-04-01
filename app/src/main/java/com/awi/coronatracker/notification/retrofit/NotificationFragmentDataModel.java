@@ -1,8 +1,8 @@
-package com.awi.coronatracker.retrofit;
+package com.awi.coronatracker.notification.retrofit;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MovieDataModel {
+public class NotificationFragmentDataModel {
 
     @SerializedName("id")
     public String id;

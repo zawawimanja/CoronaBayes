@@ -3,39 +3,22 @@ package com.awi.coronatracker.home;
 
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.awi.coronatracker.R;
-import com.awi.coronatracker.MyApplication;
-import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +34,11 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<GridModelData> itemsList;
-    private StoreAdapter mAdapter;
+
     private RecyclerView horizontalList;
 
-    private HorizontalListAdapter horizontalAdapter;
-    private TileContentFragment horizontalAdapter1;
+    private HorizontalAdapter horizontalAdapter;
+    private GridViewAdapter horizontalAdapter1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -83,12 +66,13 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         itemsList = new ArrayList<>();
       //  mAdapter = new StoreAdapter(getActivity(), itemsList);
-        horizontalAdapter = new HorizontalListAdapter(getActivity());
-        horizontalAdapter1 = new TileContentFragment(getActivity());
+        horizontalAdapter = new HorizontalAdapter(getActivity());
+        horizontalAdapter1 = new GridViewAdapter(getActivity());
 
+        //gridview
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(8), true));
+      //  recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(8), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(horizontalAdapter1);
         recyclerView.setNestedScrollingEnabled(false);
@@ -97,7 +81,7 @@ public class HomeFragment extends Fragment {
         //set horizontal LinearLayout as layout manager to creating horizontal list view
         LinearLayoutManager horizontalManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         horizontalList.setLayoutManager(horizontalManager);
-        horizontalAdapter = new HorizontalListAdapter(getActivity());
+        horizontalAdapter = new HorizontalAdapter(getActivity());
         horizontalList.setAdapter(horizontalAdapter);
 
 
@@ -190,71 +174,4 @@ public class HomeFragment extends Fragment {
      * RecyclerView adapter class to render items
      * This class can go into another separate class, but for simplicity
      */
-    class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
-        private Context context;
-        private List<GridModelData> movieList;
-
-        Activity activity;
-        String[] mPlaces;
-        String[] mPlaceDesc;
-        Drawable[] mPlacePictures;
-
-
-
-        public StoreAdapter(Context context) {
-            Resources resources = context.getResources();
-            mPlaces = resources.getStringArray(R.array.places);
-            mPlaceDesc = resources.getStringArray(R.array.place_desc);
-            TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-            mPlacePictures = new Drawable[a.length()];
-            for (int i = 0; i < mPlacePictures.length; i++) {
-                mPlacePictures[i] = a.getDrawable(i);
-            }
-            a.recycle();
-        }
-
-
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView name, price;
-            public ImageView thumbnail;
-
-            public MyViewHolder(View view) {
-                super(view);
-                name = view.findViewById(R.id.title);
-                price = view.findViewById(R.id.price);
-                thumbnail = view.findViewById(R.id.thumbnail);
-            }
-        }
-
-
-        public StoreAdapter(Context context, List<GridModelData> movieList) {
-            this.context = context;
-            this.movieList = movieList;
-        }
-
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.store_item_row, parent, false);
-
-            return new MyViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(MyViewHolder holder, final int position) {
-            final GridModelData movie = movieList.get(position);
-            holder.name.setText(movie.getTitle());
-            holder.price.setText(movie.getPrice());
-
-            Glide.with(context)
-                    .load(movie.getImage())
-                    .into(holder.thumbnail);
-        }
-
-        @Override
-        public int getItemCount() {
-            return movieList.size();
-        }
-    }
 }

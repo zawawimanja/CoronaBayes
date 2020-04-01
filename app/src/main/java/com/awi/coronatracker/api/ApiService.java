@@ -2,7 +2,7 @@
 //
 //
 //
-//import com.awi.coronatracker.retrofit.MovieDataModel;
+//import com.awi.coronatracker.profile.retrofit.NotificationFragmentDataModel;
 //
 //import java.util.List;
 //
@@ -12,10 +12,10 @@
 //public interface ApiService {
 //
 ////    @GET("movies_2017.json")
-////    Call<List<MovieDataModel>> getshops();
+////    Call<List<NotificationFragmentDataModel>> getshops();
 //
 //
 //    @GET("v1/healthcare-institution")
-//    Call<List<MovieDataModel>> getshops();
+//    Call<List<NotificationFragmentDataModel>> getshops();
 //
 //}

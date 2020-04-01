@@ -28,8 +28,8 @@
     <string name="title_gifts">Gifts</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
-    <string name="noti">Noti</string>
-    <string name="request">Request</string>
+    <string name="noti">Notification</string>
+    <string name="request">Web</string>
 
     <string name="next">Next</string>
     <string name="discover">Discover</string>
@@ -50,5 +50,13 @@
 
     <string name="slide_2_title">Android</string>
     <string name="slide_2_desc">Android is a mobile operating system developed by Google.</string>
-
+    <string name="shr_hint_username">Username</string>
+    <string name="shr_hint_password">Password</string>
+    <string name="shr_button_next">Next</string>
+    <string name="shr_button_cancel">Cancel</string>
+    <string name="shr_error_password">Password must contain at least 8 characters.</string>
+    <string name="shr_filter_title">Filter</string>
+    <string name="shr_search_title">Search</string>
+    <string name="shr_product_title">Title</string>
+    <string name="shr_product_description">Secondary text</string>
 </resources>

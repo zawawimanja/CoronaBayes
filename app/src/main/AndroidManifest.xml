@@ -17,9 +17,9 @@
         android:roundIcon="@mipmap/corona_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/MyToolbarTheme">
-        <activity android:name=".introslider.WelcomeActivity"></activity>
-        <activity android:name=".introslider.IntroductionMemory"></activity>
-        <activity android:name=".SignInActivity" />
+        <activity android:name=".auth.SignInActivity"></activity>
+        <activity android:name=".introslider.WelcomeActivity" />
+        <activity android:name=".introslider.IntroductionMemory" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

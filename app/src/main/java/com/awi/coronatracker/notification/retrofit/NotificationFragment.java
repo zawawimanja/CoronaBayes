@@ -1,32 +1,25 @@
-package com.awi.coronatracker.retrofit;
+package com.awi.coronatracker.notification.retrofit;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.awi.coronatracker.R;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class MovieFragment extends Fragment {
+public class NotificationFragment extends Fragment {
 
 //    private ApiService apiService;
     private RecyclerView shopsRecyclerview;
-    private MovieDataModel recyclerviewAdapter;
-    private List<MovieDataModel> movieList;
+    private NotificationFragmentDataModel recyclerviewAdapter;
+    private List<NotificationFragmentDataModel> movieList;
 
     @Nullable
     @Override
@@ -37,7 +30,7 @@ public class MovieFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         shopsRecyclerview.setLayoutManager(layoutManager);
 //        apiService = RetrofitClient.getInstance().create(ApiService.class);
-//        recyclerviewAdapter = new MovieDataModel(getContext(), movieList);
+//        recyclerviewAdapter = new NotificationFragmentDataModel(getContext(), movieList);
 //        shopsRecyclerview.setAdapter(recyclerviewAdapter);
         //loadshopData();
         return view;
@@ -45,18 +38,18 @@ public class MovieFragment extends Fragment {
 //
 //    private void loadshopData() {
 //
-//        Call<List<MovieDataModel>> listCall = apiService.getshops();
+//        Call<List<NotificationFragmentDataModel>> listCall = apiService.getshops();
 //
-//        listCall.enqueue(new Callback<List<MovieDataModel>>() {
+//        listCall.enqueue(new Callback<List<NotificationFragmentDataModel>>() {
 //            @Override
-//            public void onResponse(Call<List<MovieDataModel>> call, Response<List<MovieDataModel>> response) {
+//            public void onResponse(Call<List<NotificationFragmentDataModel>> call, Response<List<NotificationFragmentDataModel>> response) {
 //                movieList = response.body();
 //                recyclerviewAdapter.loadShops(movieList);
 //                Log.d("Response",response.body().toString());
 //            }
 //
 //            @Override
-//            public void onFailure(Call<List<MovieDataModel>> call, Throwable t) {
+//            public void onFailure(Call<List<NotificationFragmentDataModel>> call, Throwable t) {
 //                Log.d("Response",t.toString());
 //
 //            }

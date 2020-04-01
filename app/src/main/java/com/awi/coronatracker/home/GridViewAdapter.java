@@ -18,20 +18,13 @@ package com.awi.coronatracker.home;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,14 +36,14 @@ import com.awi.coronatracker.R;
 
 
 
-public class TileContentFragment extends RecyclerView.Adapter<TileContentFragment.ViewHolder> {
+public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHolder> {
 
     Activity activity;
     String[] mPlaces;
     String[] mPlaceDesc;
     Drawable[] mPlacePictures;
 
-    public TileContentFragment(Context context) {
+    public GridViewAdapter(Context context) {
         Resources resources = context.getResources();
         mPlaces = resources.getStringArray(R.array.places);
         mPlaceDesc = resources.getStringArray(R.array.place_desc);
@@ -64,8 +57,8 @@ public class TileContentFragment extends RecyclerView.Adapter<TileContentFragmen
 
 
     @Override
-    public TileContentFragment.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new TileContentFragment.ViewHolder(LayoutInflater.from(parent.getContext()), parent);
+    public GridViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new GridViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()), parent);
     }
 
     @Override
@@ -75,9 +68,10 @@ public class TileContentFragment extends RecyclerView.Adapter<TileContentFragmen
     }
 
 
+    //return no of item in grid
     @Override
     public int getItemCount() {
-        return 9;
+        return 7;
     }
 
     /**

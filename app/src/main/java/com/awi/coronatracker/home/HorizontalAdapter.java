@@ -5,27 +5,24 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.awi.coronatracker.R;
 
 
-public class HorizontalListAdapter extends RecyclerView.Adapter<HorizontalListAdapter.ViewHolder> {
+public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.ViewHolder> {
 
     Activity activity;
  String[] mPlaces;
     String[] mPlaceDesc;
      Drawable[] mPlacePictures;
 
-    public HorizontalListAdapter(Context context) {
+    public HorizontalAdapter(Context context) {
         Resources resources = context.getResources();
         mPlaces = resources.getStringArray(R.array.places);
         mPlaceDesc = resources.getStringArray(R.array.place_desc);
@@ -52,7 +49,7 @@ public class HorizontalListAdapter extends RecyclerView.Adapter<HorizontalListAd
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 2;
     }
 
     /**
@@ -99,14 +96,14 @@ public class HorizontalListAdapter extends RecyclerView.Adapter<HorizontalListAd
 //                }
 //            });
 
-            ImageButton shareImageButton = (ImageButton) itemView.findViewById(R.id.share_button);
-            shareImageButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    Snackbar.make(v, "Share article",
-                            Snackbar.LENGTH_LONG).show();
-                }
-            });
+//            ImageButton shareImageButton = (ImageButton) itemView.findViewById(R.id.share_button);
+//            shareImageButton.setOnClickListener(new View.OnClickListener(){
+//                @Override
+//                public void onClick(View v) {
+//                    Snackbar.make(v, "Share article",
+//                            Snackbar.LENGTH_LONG).show();
+//                }
+//            });
         }
     }
 }

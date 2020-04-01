@@ -17,7 +17,7 @@ import com.awi.coronatracker.R;
 public class Nest1Fragment extends Fragment {
 
 
-    private  String Load_url="https://google.org/crisisresponse/covid19-map";
+    private  String Load_url="https://www.worldometers.info/coronavirus/";
     private WebView webView;
 
     private final static long threshold = 150000;
