@@ -1,14 +1,13 @@
 package com.awi;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.awi.coronatracker.home.HomeFragment;
 
 import com.awi.coronatracker.nestedtab.MapFragment;
-import com.awi.coronatracker.news.NewsFragment;
 import com.awi.coronatracker.notification.retrofit.NotificationFragment;
 import com.awi.coronatracker.profile.retrofit.ProfileFragment;
 

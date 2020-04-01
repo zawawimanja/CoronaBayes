@@ -24,7 +24,7 @@
             android:tint="@color/button_grey"
             android:title="Tips" />
         <item
-
+            android:id="@+id/test"
             android:tint="@color/button_grey"
             android:title="Three" />
     </group>

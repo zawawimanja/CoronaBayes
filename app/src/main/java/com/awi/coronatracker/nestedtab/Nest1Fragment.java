@@ -1,7 +1,9 @@
 package com.awi.coronatracker.nestedtab;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +16,12 @@ import android.webkit.WebViewClient;
 import com.awi.coronatracker.R;
 
 
-public class Nest1Fragment extends Fragment {
+public class Nest1Fragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
 
 
     private  String Load_url="https://www.worldometers.info/coronavirus/";
     private WebView webView;
-
+    SwipeRefreshLayout mSwipeRefreshLayout;
     private final static long threshold = 150000;
 
     public static Nest1Fragment newInstance(int position) {
@@ -51,6 +53,20 @@ public class Nest1Fragment extends Fragment {
 
 
                 webView = v.findViewById(R.id.mbEmbeddedWebView);
+
+
+
+        // SwipeRefreshLayout
+        mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener((SwipeRefreshLayout.OnRefreshListener) this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+
+
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(true);
@@ -69,6 +85,12 @@ public class Nest1Fragment extends Fragment {
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
         });
         openURL();
 
@@ -81,4 +103,12 @@ public class Nest1Fragment extends Fragment {
         webView.requestFocus();
     }
 
+    @Override
+    public void onRefresh() {
+      webView.reload();
+    }
+
+
 }
+
+

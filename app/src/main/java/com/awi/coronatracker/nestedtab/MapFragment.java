@@ -1,16 +1,16 @@
 package com.awi.coronatracker.nestedtab;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.R;
 import com.awi.coronatracker.news.NewsFragment;
 
@@ -20,7 +20,7 @@ import com.awi.coronatracker.news.NewsFragment;
  * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment {
+public class MapFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +29,9 @@ public class MapFragment extends Fragment {
     private  String Load_url="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd";
             //"https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61";
     private final static long threshold = 150000;
+
+
+
 
     // TODO: Rename and change types of parameters
 
@@ -69,8 +72,12 @@ public class MapFragment extends Fragment {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
+
+
         return v;
     }
+
+
 
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
