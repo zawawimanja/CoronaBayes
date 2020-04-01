@@ -1,4 +1,4 @@
-package com.awi.coronatracker.introslider;
+package com.awi.coronatracker.intro;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.awi.coronatracker.MainActivity;
 import com.awi.coronatracker.R;
 import com.awi.coronatracker.auth.SignInActivity;
 
