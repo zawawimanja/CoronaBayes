@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.awi.coronatracker.MainActivity;
 import com.awi.coronatracker.R;
+import com.awi.coronatracker.notes.NotesFragment;
 import com.awi.coronatracker.settings.SettingsFragment;
 
 public class Main2Activity extends AppCompatActivity {
@@ -22,21 +23,27 @@ public class Main2Activity extends AppCompatActivity {
         TestFragment autocompleteFragment = new TestFragment();
         Test2Fragment autocompleteFragment1 = new Test2Fragment();
         SettingsFragment autocompleteFragment12 = new SettingsFragment();
+        NotesFragment notes= new NotesFragment();
 
 
         //get the intent in the target activity
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        Integer user_id = extras.getInt("FragmentChoose");
+        String user_id = extras.getString("FragmentChoose");
 
-        if(user_id==1){
+        if(user_id.contains("A")){
 
             loadFragment(autocompleteFragment);
         }
-        else{
+        else if(user_id.contains("A")){
 
             loadFragment(autocompleteFragment12);
+        }
 
+
+        else if (user_id.contains("Notes") ){
+
+                loadFragment(notes);
 
         }
 
