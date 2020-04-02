@@ -1,6 +1,7 @@
 package com.awi.coronatracker.test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -14,7 +15,7 @@ import com.awi.coronatracker.settings.SettingsFragment;
 
 public class Main2Activity extends AppCompatActivity {
 
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,13 @@ public class Main2Activity extends AppCompatActivity {
         Test2Fragment autocompleteFragment1 = new Test2Fragment();
         SettingsFragment autocompleteFragment12 = new SettingsFragment();
         NotesFragment notes= new NotesFragment();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
 
         //get the intent in the target activity
@@ -35,7 +43,7 @@ public class Main2Activity extends AppCompatActivity {
 
             loadFragment(autocompleteFragment);
         }
-        else if(user_id.contains("A")){
+        else if(user_id.contains("Settings")){
 
             loadFragment(autocompleteFragment12);
         }
