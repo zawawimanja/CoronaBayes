@@ -2,6 +2,7 @@ package com.awi.coronatracker.home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.awi.coronatracker.R;
+import com.bumptech.glide.Glide;
 
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.ViewHolder> {
@@ -104,6 +106,34 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Vi
 //                            Snackbar.LENGTH_LONG).show();
 //                }
 //            });
+
+//            void bindTo(Sport currentSport){
+//                // Populate the textviews with data.
+//                mTitleText.setText(currentSport.getTitle());
+//                mInfoText.setText(currentSport.getInfo());
+//
+//                // Load the images into the ImageView using the Glide library.
+//                Glide.with(mContext).load(
+//                        currentSport.getImageResource()).into(mSportsImage);
+//
+//            }
+//
+//            /**
+//             * Handle click to show DetailActivity.
+//             *
+//             * @param view View that is clicked.
+//             */
+//            @Override
+//            public void onClick(View view) {
+//                Sport currentSport = mSportsData.get(getAdapterPosition());
+//                Intent detailIntent = new Intent(mContext, DetailActivity.class);
+//                detailIntent.putExtra("title", currentSport.getTitle());
+//                detailIntent.putExtra("image_resource",
+//                        currentSport.getImageResource());
+//                mContext.startActivity(detailIntent);
+//            }
+
+
         }
     }
 }

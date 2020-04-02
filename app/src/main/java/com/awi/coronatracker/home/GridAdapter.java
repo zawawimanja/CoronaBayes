@@ -18,6 +18,7 @@ package com.awi.coronatracker.home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -27,8 +28,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.awi.coronatracker.R;
+import com.awi.coronatracker.notes.NotesActivity;
+import com.awi.coronatracker.test.Main2Activity;
+
+import java.util.ArrayList;
 
 /**
  * Provides UI for the view with Tile.
@@ -36,18 +42,22 @@ import com.awi.coronatracker.R;
 
 
 
-public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHolder> {
-
+public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
+    private Context mContext;
     Activity activity;
     String[] mPlaces;
     String[] mPlaceDesc;
     Drawable[] mPlacePictures;
+    private ArrayList<GridModelData> mSportsData;
 
-    public GridViewAdapter(Context context) {
+    public GridAdapter(Context context, ArrayList<GridModelData> mSportsData) {
+        this.mSportsData = mSportsData;
+
         Resources resources = context.getResources();
         mPlaces = resources.getStringArray(R.array.places);
         mPlaceDesc = resources.getStringArray(R.array.place_desc);
         TypedArray a = resources.obtainTypedArray(R.array.places_picture);
+
         mPlacePictures = new Drawable[a.length()];
         for (int i = 0; i < mPlacePictures.length; i++) {
             mPlacePictures[i] = a.getDrawable(i);
@@ -57,14 +67,18 @@ public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHo
 
 
     @Override
-    public GridViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new GridViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext()), parent);
+    public GridAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new GridAdapter.ViewHolder(LayoutInflater.from(parent.getContext()), parent);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
         holder.name.setText(mPlaces[position % mPlaces.length]);
+
+
+
+
     }
 
 
@@ -77,9 +91,11 @@ public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHo
     /**
      * View holder to display each RecylerView item
      */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder   {
         public ImageView picture;
         public TextView name;
+
+
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_tile, parent, false));
             picture = (ImageView) itemView.findViewById(R.id.tile_picture);
@@ -87,11 +103,28 @@ public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Context context = v.getContext();
-//                    Intent intent = new Intent(context, DetailActivity.class);
-//                    intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+                    Context context = v.getContext();
+
+
+                    if(getAdapterPosition()==4){
+                    Intent intent = new Intent(context, NotesActivity.class);
+//                    intent.putExtra("Notes", getAdapterPosition());
+                       // intent.putExtra("FragmentChoose","Notes");
+
+                    context.startActivity(intent);
+
+                    }
+
+//                    Intent intent = new Intent(context, MainActivity.class);
+//                 //   intent.putExtra(MainActivity.EXTRA_POSITION, getAdapterPosition());
 //                    context.startActivity(intent);
+
+                    Toast.makeText(context, "No "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+
                 }
             });
         }
+
+
+
     }}

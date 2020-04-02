@@ -118,12 +118,12 @@ public class MainActivity extends AppCompatActivity  {
                         }
                        else if (id == R.id.test) {
                            Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
-                           mainIntent.putExtra("FragmentChoose",1);
+                           mainIntent.putExtra("FragmentChoose","A");
                           startActivity(mainIntent);
                         }
                         else if (id == R.id.test1) {
                             Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
-                            mainIntent.putExtra("FragmentChoose",2);
+                            mainIntent.putExtra("FragmentChoose","B");
                             startActivity(mainIntent);
 
 //                            Intent mainIntent = new Intent(MainActivity.this, SettingsActivity.class);

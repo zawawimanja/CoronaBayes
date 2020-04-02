@@ -38,7 +38,9 @@ public class HomeFragment extends Fragment {
     private RecyclerView horizontalList;
 
     private HorizontalAdapter horizontalAdapter;
-    private GridViewAdapter horizontalAdapter1;
+    private GridAdapter horizontalAdapter1;
+
+    private ArrayList<GridModelData> mSportsData;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -67,7 +69,7 @@ public class HomeFragment extends Fragment {
         itemsList = new ArrayList<>();
       //  mAdapter = new StoreAdapter(getActivity(), itemsList);
         horizontalAdapter = new HorizontalAdapter(getActivity());
-        horizontalAdapter1 = new GridViewAdapter(getActivity());
+        horizontalAdapter1 = new GridAdapter(getActivity(),mSportsData);
 
         //gridview
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
