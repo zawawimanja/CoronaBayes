@@ -17,9 +17,12 @@
         android:roundIcon="@mipmap/corona_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/MyToolbarTheme">
-        <activity android:name=".notes.NotesActivity"></activity>
+        <activity android:name=".profile.retrofit.ProfileActivity"></activity>
+        <activity android:name=".notes.NotesActivity" />
         <activity android:name=".test.Main2Activity" />
+        <activity android:name=".auth.RegisterActivity" />
         <activity android:name=".auth.SignInActivity" />
+        <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".intro.WelcomeActivity" />
         <activity android:name=".intro.IntroductionMemory" />
         <activity android:name=".intro.SplashActivity"></activity>

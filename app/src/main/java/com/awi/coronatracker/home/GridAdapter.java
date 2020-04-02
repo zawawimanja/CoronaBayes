@@ -119,7 +119,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 //                 //   intent.putExtra(MainActivity.EXTRA_POSITION, getAdapterPosition());
 //                    context.startActivity(intent);
 
-                    Toast.makeText(context, "No "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(context, "No "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
 
                 }
             });

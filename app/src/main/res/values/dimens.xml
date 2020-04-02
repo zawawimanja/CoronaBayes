@@ -15,6 +15,7 @@
     <dimen name="md_keylines">8dp</dimen>
     <dimen name="tile_padding">8dp</dimen>
     <dimen name="tile_height">160dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 
     <dimen name="article_keylines">72dp</dimen>
     <dimen name="avator_size">40dp</dimen>

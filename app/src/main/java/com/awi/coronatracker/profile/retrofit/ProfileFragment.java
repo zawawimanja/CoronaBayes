@@ -3,6 +3,7 @@ package com.awi.coronatracker.profile.retrofit;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,17 +21,19 @@ public class ProfileFragment extends Fragment {
 
 //    private ApiService apiService;
     private RecyclerView shopsRecyclerview;
-    private ProfileFragmentDataModel recyclerviewAdapter;
+    private ProfileFragmentDataModel recyclerView;
     private List<ProfileFragmentDataModel> movieList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.latest_layout,container,false);
-        movieList = new ArrayList<>();
-        shopsRecyclerview = (RecyclerView)view.findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        shopsRecyclerview.setLayoutManager(layoutManager);
+        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.fragment_profile,container,false);
+
+
+
+
+
+
 //        apiService = RetrofitClient.getInstance().create(ApiService.class);
 //        recyclerviewAdapter = new NotificationFragmentDataModel(getContext(), movieList);
 //        shopsRecyclerview.setAdapter(recyclerviewAdapter);

@@ -1,0 +1,155 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1f5f7"
+    android:scrollbars="vertical"
+    android:id="@+id/profile"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:orientation="horizontal"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/white">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+/>
+
+
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+
+                android:src="@drawable/ic_mode_edit_white_24dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profile_app_bar_layout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/profile"
+                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_width="2dp"/>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_marginStart="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorAccent"
+                        android:fontFamily="@font/ml"
+                        android:text="Full Name"/>
+
+                    <TextView
+                        android:id="@+id/profile_full_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mr"
+                        android:textSize="15sp"
+                        android:text="Muhamad "
+                        android:textColor="@color/textColorPrimary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorAccent"
+                        android:fontFamily="@font/ml"
+                        android:text="Identity Card"/>
+
+                    <TextView
+                        android:id="@+id/profile_ic_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mr"
+                        android:textSize="15sp"
+                        android:text="999999036666"
+                        android:textColor="@color/textColorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorAccent"
+                        android:fontFamily="@font/ml"
+                        android:text="Phone Number"/>
+
+                    <TextView
+                        android:id="@+id/profile_phone_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mr"
+                        android:textSize="15sp"
+                        android:text="+60101111111"
+                        android:textColor="@color/textColorPrimary" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -27,5 +27,14 @@
             android:id="@+id/test"
             android:tint="@color/button_grey"
             android:title="Three" />
+
+        <item
+
+            android:tint="@color/button_grey"
+            android:title="About" />
+
+        <item
+            android:tint="@color/button_grey"
+            android:title="Share" />
     </group>
 </menu>

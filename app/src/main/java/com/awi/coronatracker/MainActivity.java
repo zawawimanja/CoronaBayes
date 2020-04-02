@@ -5,7 +5,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.awi.coronatracker.settings.SettingsActivity;
+import com.awi.coronatracker.auth.SignInActivity;
 import com.awi.coronatracker.test.Main2Activity;
 import com.awi.coronatracker.test.Test2Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,12 +27,16 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.awi.ViewPagerAdapter;
 import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.nestedtab.MapFragment;
 import com.awi.coronatracker.notification.retrofit.NotificationFragment;
 import com.awi.coronatracker.profile.retrofit.ProfileFragment;
+
+
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity  {
             R.mipmap.self_diagnosis
     };
 
+    String NameHolder;
+    TextView Name;
+    Button LogOUT ;
+
     private DrawerLayout mDrawerLayout;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -54,6 +62,15 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+
+        // Receiving User Email Send By MainActivity.
+        NameHolder = intent.getStringExtra(SignInActivity.userName);
+
+        // Setting up received email to TextView.
+       // Name.setText(Name.getText().toString()+ NameHolder);
+
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -181,9 +198,9 @@ public class MainActivity extends AppCompatActivity  {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,
-                    SettingsActivity.class);
-            startActivity(intent);
+            Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
+            mainIntent.putExtra("FragmentChoose","Settings");
+            startActivity(mainIntent);
             return true;
         } else if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
