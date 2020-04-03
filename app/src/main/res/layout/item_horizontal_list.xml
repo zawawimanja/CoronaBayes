@@ -26,42 +26,31 @@
     android:layout_marginRight="@dimen/md_keylines"
     android:foreground="?attr/selectableItemBackground">
 
-    <RelativeLayout
+
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/coronavirus" />
-
-        <TextView
-            android:id="@+id/card_title"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/card_title_height"
-            android:layout_alignBottom="@+id/card_image"
-            android:layout_marginLeft="@dimen/md_keylines"
-
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/white" />
-
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/face_profile" />
 
     <TextView
-        android:id="@+id/card_text"
+        android:gravity="center_horizontal"
+        android:id="@+id/card_title"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_marginLeft="@dimen/md_keylines"
-        android:layout_marginTop="@dimen/md_keylines"
-        android:layout_marginRight="@dimen/md_keylines"
-        android:layout_marginBottom="@dimen/md_keylines"
+        android:layout_height="wrap_content"
+        android:text="sdsd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/black" />
 
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textColor="@color/dark_grey"
-        android:textSize="@dimen/article_subheading" />
+    </LinearLayout>
+
+
+
 </androidx.cardview.widget.CardView>

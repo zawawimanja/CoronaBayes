@@ -8,16 +8,19 @@
     <!-- Text color for the primary source of the corona news in the list item -->
     <color name="textColorCoronaNewsSource">#2B3D4D</color>
 
-    <color name="colorPrimary">#125688</color>
-    <color name="colorPrimaryDark">#125688</color>
+    <color name="colorPrimary">#14a895</color>
+    <color name="colorPrimaryDark">#14a895</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#c8e8ff</color>
     <color name="dark_grey">#424242</color>
     <color name="medium_grey">#9E9E9E</color>
-    <color name="button_grey">#757575</color>
+    <color name="button_grey">#E9EBEE</color>
     <color name="white">#FFFFFF</color>
+    <color name="lightgrey">#E0E0E0</color>
+
+
     <color name="bgBottomNavigation">#fe485a</color>
 
     <color name="colorTransparentWhite">#f5f5f5</color>

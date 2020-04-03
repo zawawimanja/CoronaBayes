@@ -15,10 +15,10 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/profile_toolbar"
+            android:id="@+id/profile_toolbar_fragment"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/lightgrey"
             android:orientation="horizontal"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextColor="@color/white">

@@ -91,7 +91,7 @@
                     android:layout_toRightOf="@+id/imgView_usernameIcon"
                     android:background="@drawable/bg_input_general"
 
-                    android:hint="Username"
+                    android:hint="Email"
                     android:inputType="text"
                     android:maxLines="1"
                     android:paddingLeft="10dp"

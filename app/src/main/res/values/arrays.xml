@@ -84,16 +84,15 @@
         <item>Contact</item>
         <item>Chart</item>
         <item>Hospital</item>
-        <item>Money</item>
         <item>Notes</item>
         <item>Map</item>
+        <item>QR</item>
     </string-array>
 
     <array name="places_picture">
         <item>@drawable/contact</item>
         <item>@drawable/chart</item>
         <item>@drawable/hospital_grid</item>
-        <item>@drawable/money</item>
         <item>@drawable/notes</item>
         <item>@drawable/map</item>
         <item>@drawable/qr</item>

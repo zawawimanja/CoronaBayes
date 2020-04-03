@@ -251,7 +251,7 @@ public class NotesFragment extends Fragment {
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getActivity());
         View view = layoutInflaterAndroid.inflate(R.layout.note_dialog, null);
 
-        AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         alertDialogBuilderUserInput.setView(view);
 
         final EditText inputNote = view.findViewById(R.id.note);
@@ -263,8 +263,6 @@ public class NotesFragment extends Fragment {
 
             // Notify the adapter of the change.
             mAdapter.notifyDataSetChanged();
-
-
 
         }
         alertDialogBuilderUserInput

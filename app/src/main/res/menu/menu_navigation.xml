@@ -15,18 +15,18 @@
   -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/bot"
-            android:tint="@color/button_grey"
-            android:title="Location" />
-        <item
-            android:id="@+id/test1"
-            android:tint="@color/button_grey"
-            android:title="Tips" />
-        <item
-            android:id="@+id/test"
-            android:tint="@color/button_grey"
-            android:title="Three" />
+<!--        <item-->
+<!--            android:id="@+id/bot"-->
+<!--            android:tint="@color/button_grey"-->
+<!--            android:title="Location" />-->
+<!--        <item-->
+<!--            android:id="@+id/test1"-->
+<!--            android:tint="@color/button_grey"-->
+<!--            android:title="Tips" />-->
+<!--        <item-->
+<!--            android:id="@+id/test"-->
+<!--            android:tint="@color/button_grey"-->
+<!--            android:title="Three" />-->
 
         <item
 

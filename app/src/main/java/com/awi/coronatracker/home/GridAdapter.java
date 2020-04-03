@@ -85,7 +85,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     //return no of item in grid
     @Override
     public int getItemCount() {
-        return 7;
+        return 6;
     }
 
     /**
@@ -105,11 +105,12 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                 public void onClick(View v) {
                     Context context = v.getContext();
 
+                       Toast.makeText(context, "No "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
 
-                    if(getAdapterPosition()==4){
+                    if(getAdapterPosition()==3){
                     Intent intent = new Intent(context, NotesActivity.class);
-//                    intent.putExtra("Notes", getAdapterPosition());
-                       // intent.putExtra("FragmentChoose","Notes");
+                    intent.putExtra("Notes", getAdapterPosition());
+                        intent.putExtra("FragmentChoose","Notes");
 
                     context.startActivity(intent);
 

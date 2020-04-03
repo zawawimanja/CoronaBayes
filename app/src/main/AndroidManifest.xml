@@ -25,16 +25,22 @@
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".intro.WelcomeActivity" />
         <activity android:name=".intro.IntroductionMemory" />
-        <activity android:name=".intro.SplashActivity"></activity>
+        <activity android:name=".intro.SplashActivity">
+
+
+
+        </activity>
         <activity android:name=".QR.QrCreateActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

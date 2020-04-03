@@ -20,8 +20,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.content.DialogInterface;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -214,6 +216,7 @@ public class NotesActivity extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("cancel",
+
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialogBox, int id) {
                                 dialogBox.cancel();
@@ -222,6 +225,17 @@ public class NotesActivity extends AppCompatActivity {
 
         final AlertDialog alertDialog = alertDialogBuilderUserInput.create();
         alertDialog.show();
+
+        Button btnOk = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button btnCancel = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+
+        if (btnOk != null && btnCancel != null) {
+            btnOk.setTextColor(getResources().getColor(R.color.black));
+            btnCancel.setTextColor(getResources().getColor(R.color.black));
+        } else {
+
+        }
 
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override

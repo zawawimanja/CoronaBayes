@@ -51,8 +51,8 @@ public class ProfileFragmentAdapter extends RecyclerView.Adapter<ProfileFragment
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            shopName = (TextView) itemView.findViewById(R.id.shopName);
-            shopImage = (ImageView)itemView.findViewById(R.id.shopImage);
+//            shopName = (TextView) itemView.findViewById(R.id.shopName);
+//            shopImage = (ImageView)itemView.findViewById(R.id.shopImage);
 
         }
     }
