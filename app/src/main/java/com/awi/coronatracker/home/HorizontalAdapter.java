@@ -46,7 +46,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
         holder.name.setText(mPlaces[position % mPlaces.length]);
-        holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+     //   holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Vi
             super(inflater.inflate(R.layout.item_horizontal_list, parent, false));
             picture = (ImageView) itemView.findViewById(R.id.imageView);
             name = (TextView) itemView.findViewById(R.id.card_title);
-            description = (TextView) itemView.findViewById(R.id.card_text);
+         //   description = (TextView) itemView.findViewById(R.id.card_text);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

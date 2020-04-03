@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
         horizontalList = view.findViewById(R.id.horizontal_recycler);
         recyclerView = view.findViewById(R.id.recycler_view);
         itemsList = new ArrayList<>();
+
       //  mAdapter = new StoreAdapter(getActivity(), itemsList);
         horizontalAdapter = new HorizontalAdapter(getActivity());
         horizontalAdapter1 = new GridAdapter(getActivity(),mSportsData);

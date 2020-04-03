@@ -15,10 +15,9 @@
             android:id="@+id/profile_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-
+            android:background="@color/lightgrey"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleTextColor="@color/white">
+         >
 
             <ImageView
                 android:id="@+id/back"
@@ -27,16 +26,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="16dp"
                 android:src="@drawable/ic_arrow_back_white_24dp" />
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="My Profile"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                 />
 
             <!--            <TextView-->
             <!--                android:layout_width="wrap_content"-->

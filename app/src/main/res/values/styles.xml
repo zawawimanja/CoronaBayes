@@ -8,11 +8,18 @@
         <item name="colorAccent">#131313</item>
 
 
+
+
     </style>
     <style name="MyToolbarTheme"
         parent="MyMaterialTheme">
 
     </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
 
     </style>

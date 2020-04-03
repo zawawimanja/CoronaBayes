@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.awi.coronatracker.QR.QuestionFragment;
 import com.awi.coronatracker.auth.SignInActivity;
 import com.awi.coronatracker.test.Main2Activity;
 import com.awi.coronatracker.test.Test2Fragment;
@@ -31,7 +32,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.awi.ViewPagerAdapter;
-import com.awi.coronatracker.QR.QuestionFragment;
+
 import com.awi.coronatracker.nestedtab.MapFragment;
 import com.awi.coronatracker.notification.retrofit.NotificationFragment;
 import com.awi.coronatracker.profile.retrofit.ProfileFragment;
@@ -65,11 +66,14 @@ public class MainActivity extends AppCompatActivity  {
 
         Intent intent = getIntent();
 
-        // Receiving User Email Send By MainActivity.
-        NameHolder = intent.getStringExtra(SignInActivity.userName);
+        if(intent!=null){
+            // Receiving User Email Send By MainActivity.
+            NameHolder = intent.getStringExtra(SignInActivity.userName);
 
-        // Setting up received email to TextView.
-       // Name.setText(Name.getText().toString()+ NameHolder);
+            // Setting up received email to TextView.
+            // Name.setText(Name.getText().toString()+ NameHolder);
+        }
+
 
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -129,24 +133,24 @@ public class MainActivity extends AppCompatActivity  {
                         Test2Fragment fragment=new Test2Fragment();
                         int id = menuItem.getItemId();
 
-                        if (id == R.id.bot) {
-
-                           viewPager.setCurrentItem(2);
-                        }
-                       else if (id == R.id.test) {
-                           Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
-                           mainIntent.putExtra("FragmentChoose","A");
-                          startActivity(mainIntent);
-                        }
-                        else if (id == R.id.test1) {
-                            Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
-                            mainIntent.putExtra("FragmentChoose","B");
-                            startActivity(mainIntent);
-
-//                            Intent mainIntent = new Intent(MainActivity.this, SettingsActivity.class);
+//                        if (id == R.id.bot) {
+//
+//                           viewPager.setCurrentItem(2);
+//                        }
+//                       else if (id == R.id.test) {
+//                           Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
+//                           mainIntent.putExtra("FragmentChoose","A");
+//                          startActivity(mainIntent);
+//                        }
+//                        else if (id == R.id.test1) {
+//                            Intent mainIntent = new Intent(MainActivity.this, Main2Activity.class);
+//                            mainIntent.putExtra("FragmentChoose","B");
 //                            startActivity(mainIntent);
-
-                        }
+//
+////                            Intent mainIntent = new Intent(MainActivity.this, SettingsActivity.class);
+////                            startActivity(mainIntent);
+//
+//                        }
 
 
                         // Set item in checked state

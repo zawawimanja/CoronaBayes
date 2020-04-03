@@ -1,6 +1,7 @@
 package com.awi.coronatracker.auth;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.awi.coronatracker.MainActivity;
 
 import com.awi.coronatracker.R;
 //import com.example.shiva.loginsignup.RegisterActivity
@@ -51,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                 SQLiteDataBaseBuild();
 
                 // Creating SQLite table if dose n't exists.
-                SQLiteTableBuild();
+              //  SQLiteTableBuild();
 
                 // Checking EditText is empty or Not.
                 CheckEditTextStatus();
@@ -106,6 +109,10 @@ public class RegisterActivity extends AppCompatActivity {
 
             // Printing toast message after done inserting.
             Toast.makeText(RegisterActivity.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
+
+            // Opening new user registration activity using intent on button click.
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(intent);
 
         }
         // This block will execute if any of the registration EditText is empty.
